@@ -31,7 +31,7 @@ public class UsuarioService {
 		newObj.setNome(obj.getNome());
 		newObj.setEmail(obj.getEmail());
 		newObj.setSenha(obj.getSenha());
-		newObj.setCartoes(obj.getCartoes());
+		newObj.setCartao(obj.getCartao());
 		return usuarioRepository.save(newObj);
 	}
 	

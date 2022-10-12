@@ -7,8 +7,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 import com.cajueiro.urbanape.domain.enums.TipoCartao;
 
@@ -28,9 +26,9 @@ public class Cartao {
 	@Column(nullable = false, length = 150)
 	private boolean status;
 	
-	@ManyToOne
-	@JoinColumn(name = "id_usuario", nullable = false)
-	private Usuario usuario;
+//	@ManyToOne
+//	@JoinColumn(name = "id_usuario", nullable = false)
+//	private Usuario usuario;
 	
 	@Enumerated(EnumType.STRING)
 	private TipoCartao tipoCartao;

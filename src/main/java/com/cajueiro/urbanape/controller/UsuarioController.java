@@ -1,6 +1,5 @@
 package com.cajueiro.urbanape.controller;
 
-import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.cajueiro.urbanape.domain.model.Usuario;
 import com.cajueiro.urbanape.service.UsuarioService;
@@ -38,6 +36,11 @@ public class UsuarioController {
 		return usuarioService.findAll();
 	}
 	
+	@PostMapping
+	public Usuario salvar(Usuario usuario) {
+		return usuarioService.create(usuario);
+	}
+	
 	@GetMapping(value ="/{id}")
 	public ResponseEntity<Usuario> findById(@PathVariable Long id){
 		Usuario obj = this.usuarioService.findByid(id);
@@ -56,11 +59,11 @@ public class UsuarioController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PostMapping
-	public ResponseEntity<Usuario> create(@RequestBody Usuario obj){
-		Usuario newObj = usuarioService.create(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
-		return ResponseEntity.created(uri).build();
-	}
+//	@PostMapping
+//	public ResponseEntity<Usuario> create(@RequestBody Usuario obj){
+//		Usuario newObj = usuarioService.create(obj);
+//		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newObj.getId()).toUri();
+//		return ResponseEntity.created(uri).build();
+//	}
 
 }
