@@ -33,7 +33,7 @@ public class Usuario {
 	private String senha;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_cartao", nullable = false)
+	@JoinColumn(name = "id_cartao")
 	private Cartao cartao;
 	
 	

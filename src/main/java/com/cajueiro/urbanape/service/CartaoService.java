@@ -17,6 +17,11 @@ public class CartaoService {
 	public List<Cartao> findAll() {
 		return cartaoRepository.findAll();
 	}
+
+	public Cartao create(Cartao obj) {
+		obj.setId(null);
+		return cartaoRepository.save(obj);
+	}
 	
 
 }
